@@ -1,4 +1,132 @@
 //Override des variables bootstrap scss ici
+$primary: #7749F8;
+$secondary: white;
+$font-weight-bolder: 800;
+$font-weight-bold: 600;
+$info: #EBE5FC;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+p {
+    line-height: 28px;
+}
+
+.btn-secondary {
+    padding: 16px 24px !important;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.text-tertiary {
+    color: #54595E !important;
+}
+
+@media (min-width: 768px) {
+    .col-md-8 {
+        flex: 0 0 auto;
+        width: 66.66666667% !important;
+    }
+
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    img.img-best-seller {
+        width: 50% !important;
+    }
+
+    .justify-content-md-center {
+        justify-content: center !important;
+    }
+}
+
+input.form-control::placeholder {
+    color: #ADB5BD;
+    font-weight: 300;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
+    grid-template-columns: repeat(var(--bs-columns, 4), 1fr);
+    gap: var(--bs-gap, 1.5rem);
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.button-nav-pages-container {
+    button.btn {
+        padding: 12px 16px !important;
+        border: 1px solid $primary !important;
+        line-height: 1;
+
+        &.btn-secondary {
+            border: 0.5px solid #ADB5BD !important;
+            color: #6C757D !important;
+        }
+    }
+
+}
+
+$item-book-container-count: 10;
+
+@mixin display-none($n) {
+    @if $n % 2==0 {}
+
+    @else {}
+}
+
+@media screen and (max-width: 767px) {
+
+    .item-book-container {
+        @for $i from 1 through $item-book-container-count {
+            &:nth-child(#{$i}) {
+                @include display-none($i);
+
+                .item-book {
+                    &:nth-child(n + 4) {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+
+    h1,
+    h2 {
+        font-size: 40px !important;
+    }
+
+    .top-ventes{
+        font-size: 28px !important;
+    }
+
+}
